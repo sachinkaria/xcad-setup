@@ -1,0 +1,52 @@
+$primary-colour: #f05125;
+$primary-colour--dark: rgb(226, 53, 35);
+$primary-colour--light: rgba(255, 80, 0, 0.25);
+
+$black: rgba(23, 18, 25, 1);
+$green: rgba(34, 85, 96, 1);
+$red: rgb(255, 68, 65);
+$light-green: rgb(48, 190, 157);
+$yellow: rgb(240, 184, 47);
+$purple: rgba(49, 13, 32, 1);
+$blue: rgba(66, 139, 202, 1);
+$dark-blue: rgba(40, 113, 202, 1);
+$white: rgba(255, 255, 255, 1);
+$colour-error: rgb(255, 89, 75);
+$light-grey: rgba(215, 215, 215, 1);
+$lightest-grey: rgb(245, 245, 245);
+$grey: rgba(134, 134, 134, 1);
+$dark-grey: rgb(82, 82, 82);
+
+
+$primary-font: 'Muli', sans-serif;
+$secondary-font: 'Raleway', sans-serif;
+$font-size-forms: 16px;
+
+
+$react-dates-width-input: 130px !default;
+$react-dates-width-arrow: 24px !default;
+$react-dates-width-tooltip-arrow: 20px !default;
+$react-dates-width-day-picker: 300px !default;
+$react-dates-spacing-vertical-picker: 72px !default;
+
+$react-dates-color-primary: #00a699 !default;
+$react-dates-color-primary-dark: #00514a !default;
+$react-dates-color-primary-shade-1: #33dacd !default;
+$react-dates-color-primary-shade-2: #66e2da !default;
+$react-dates-color-primary-shade-3: #80e8e0 !default;
+$react-dates-color-primary-shade-4: #b2f1ec !default;
+$react-dates-color-secondary: #007a87 !default;
+$react-dates-color-white: #fff !default;
+$react-dates-color-gray: #565a5c !default;
+$react-dates-color-gray-dark: darken($react-dates-color-gray, 10.5%) !default;
+$react-dates-color-gray-light: lighten($react-dates-color-gray, 17.8%) !default;   // #82888a
+$react-dates-color-gray-lighter: lighten($react-dates-color-gray, 45%) !default;     // #cacccd
+$react-dates-color-highlighted: #ffe8bc !default;
+
+$react-dates-color-border: #dbdbdb !default;
+$react-dates-color-border-light: #dce0e0 !default;
+$react-dates-color-border-medium: #c4c4c4 !default;
+$react-dates-color-placeholder-text: #757575 !default;
+$react-dates-color-text: #484848 !default;
+$react-dates-color-text-focus: #007a87 !default;
+$react-dates-color-focus: #99ede6 !default;

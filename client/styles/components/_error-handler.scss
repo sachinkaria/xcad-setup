@@ -1,0 +1,27 @@
+.gc-alert {
+  height: 100px;
+  background-color: $colour-error;
+  color: white;
+  position: fixed;
+  top: 0;
+  right: 15px;
+  margin: auto;
+  z-index: 100;
+  max-width: 400px;
+  display: table;
+
+  p {
+    padding: 15px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  &.gc-alert--error {
+    background-color: $colour-error;
+  }
+
+  &.gc-alert--success {
+    background-color: $light-green;
+  }
+}

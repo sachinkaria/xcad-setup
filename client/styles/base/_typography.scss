@@ -1,0 +1,103 @@
+.gc-text {
+  font-family: $primary-font;
+  font-size: 14px;
+  color: $dark-grey;
+
+  &.gc-text--slim {
+    font-weight: 200 !important;
+  }
+
+  &.gc-text--xs{
+    font-size: 10px;
+  }
+
+  &.gc-text--sm{
+    font-size: 12px;
+  }
+
+  &.gc-text--lg {
+    font-size: 16px !important;
+  }
+
+  &.gc-text--xl {
+    font-size: 18px;
+  }
+
+  &.gc-text--grey {
+    color: $grey;
+  }
+
+  &.gc-text--dark-grey {
+    color: $dark-grey;
+  }
+
+  &.gc-text--light-grey {
+    color: $light-grey;
+  }
+}
+
+.gc-bold {
+  font-weight: 700 !important;
+}
+
+.gc-title {
+  font-family: $primary-font;
+  font-size: 42px;
+  font-weight: 700;
+  color: $primary-colour;
+  margin-top: 36px;
+
+  @include breakpoint(tablet) {
+    margin-top: 48px;
+    font-size: 64px;
+  }
+}
+
+.gc-heading {
+  font-family: $primary-font;
+  font-size: 32px;
+  font-weight: 700;
+  color: $dark-grey;
+  margin-bottom: 36px;
+  margin-top: 0;
+
+  .gc-heading--sm {
+    font-size: 24px;
+  }
+
+  @include breakpoint(tablet) {
+    font-size: 48px;
+  }
+}
+
+.gc-profile-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  color: $green;
+
+  @include breakpoint(tablet) {
+    font-size: 36px;
+  }
+}
+
+.gc-overflow-ellipsis{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gc-link-default {
+  color: $grey;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &.gc-link-default--white {
+    color: $white;
+  }
+}
+
+a:focus {
+  text-decoration: none;
+}

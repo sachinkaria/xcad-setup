@@ -1,0 +1,13 @@
+export const AUTH_USER = 'auth_user';
+export const UNAUTH_USER = 'unauth_user';
+export const UPDATE_USER = 'update_user';
+export const UPLOAD_PHOTO = 'upload_photo';
+export const PROCESSING_FILE_UPLOAD = 'processing_file_upload';
+export const COMPLETED_FILE_UPLOAD = 'completed_file_upload';
+export const AUTH_ERROR = 'auth_error';
+export const SHOW_ERROR = 'show_error';
+export const SHOW_SUCCESS = 'show_success';
+export const HIDE_ERROR = 'hide_error';
+export const HIDE_SUCCESS = 'hide_success';
+export const FORGOT_PASSWORD_REQUEST = 'forgot_password_request';
+export const RESET_PASSWORD_REQUEST = 'reset_password_request';

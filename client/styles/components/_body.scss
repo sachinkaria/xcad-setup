@@ -1,0 +1,39 @@
+html {
+  height: 100%;
+}
+
+body{
+  font-family: $primary-font;
+  overflow-x:hidden;
+  min-height: 100%;
+}
+
+.container {
+  width: 100%;
+
+  @include breakpoint (tablet) {
+    width: 94%;
+  }
+}
+@media (min-width: 1400px) {
+  .container {
+    width: 83.33%;
+  }
+}
+
+.gc-container {
+  margin-top: 82px;
+  min-height: 100vh - 12vh;
+
+  @include breakpoint(tablet) {
+    margin-top: 75px;
+  }
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
