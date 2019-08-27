@@ -5,10 +5,7 @@ const crypto = require('crypto');
 const _ = require('lodash');
 const User = require('../models/user');
 const config = require('../config/main');
-const request = require('superagent');
 const async = require('async');
-const Mailer = require('../services/mailer');
-const resetPasswordTemplate = require('../services/emailTemplates/resetPasswordTemplate');
 
 function generateToken(user) {
   return jwt.sign(user, config.jwt_secret, {});
@@ -16,20 +13,12 @@ function generateToken(user) {
 
 // Set user info from request
 function setUserInfo(request) {
-  const phoneCode = {
-    name : 'United Kingdom',
-    dialCode: 44,
-    code: 'GB'
-  };
-
   return {
     _id: request._id,
     firstName: request.firstName,
     lastName: request.lastName,
     email: request.email,
-    role: request.role,
-    mobileNumber: request.mobileNumber,
-    phoneCode
+    role: request.role
   };
 }
 
@@ -45,17 +34,10 @@ exports.login = (req, res, next) => {
 // Registration Route
 
 exports.register = (req, res, next) => {
-  const phoneCode = {
-    name : 'United Kingdom',
-    dialCode: 44,
-    code: 'GB'
-  };
-
   // Check for registration errors
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
   const email = req.body.email;
-  const mobileNumber = req.body.mobileNumber;
   const password = req.body.password;
 
   // Return error if no email provided
@@ -81,65 +63,9 @@ exports.register = (req, res, next) => {
       firstName,
       lastName,
       email,
-      password,
-      mobileNumber,
-      phoneCode
-    });
-
-    user.save((err, user) => {
-      if (err) { return next(err); }
-
-      // Subscribe member to Mailchimp list
-      // mailchimp.subscribeToNewsletter(user.email);
-
-      // Respond with JWT if user was created
-
-      const userInfo = setUserInfo(user);
-
-      sendSignupSlackNotification(user, 'event host');
-
-      res.status(201).json({
-        token: 'JWT '.concat(generateToken(userInfo)),
-        user: userInfo
-      });
-    });
-  });
-};
-
-// Registration Chef Route
-
-exports.registerChef = (req, res, next) => {
-  // Check for registration errors
-  const email = req.body.email;
-  const password = req.body.password;
-
-
-  // Return error if no email provided
-  if (!email) {
-    return res.status(422).send({ error: 'You must enter an email address.'});
-  }
-
-  // Return error if no password provided
-  if (!password) {
-    return res.status(422).send({ error: 'You must enter a password.' });
-  }
-
-  User.findOne({ email }, (err, existingUser) => {
-    if (err) { return next(err); }
-
-    // If user is not unique, return error
-    if (existingUser) {
-      return res.status(422).send({ error: 'That email address is already in use.' });
-    }
-
-    // If email is unique and password was provided, create account
-    const user = new User({
-      email,
       password
     });
 
-    user.role = 'chef';
-
     user.save((err, user) => {
       if (err) { return next(err); }
 
@@ -149,8 +75,6 @@ exports.registerChef = (req, res, next) => {
       // Respond with JWT if user was created
 
       const userInfo = setUserInfo(user);
-
-      sendSignupSlackNotification(user, 'caterer');
 
       res.status(201).json({
         token: 'JWT '.concat(generateToken(userInfo)),
@@ -210,15 +134,15 @@ exports.forgotPassword = (req, res) => {
       });
     },
     (token, user, done) => {
-      const HOSTNAME = 'http://'.concat(req.headers.host).concat(`/reset/${token}`);
-      const emailData = {
-        subject: 'Password reset',
-        recipient: user.email
-      };
-
-      // send email to approve profile
-      const mailer = new Mailer(emailData, resetPasswordTemplate(HOSTNAME));
-      mailer.send();
+      // const HOSTNAME = 'http://'.concat(req.headers.host).concat(`/reset/${token}`);
+      // const emailData = {
+      //   subject: 'Password reset',
+      //   recipient: user.email
+      // };
+      //
+      // // send email to approve profile
+      // const mailer = new Mailer(emailData, resetPasswordTemplate(HOSTNAME));
+      // mailer.send();
       res.send({ token });
     }
   ], (err) => {
@@ -257,14 +181,3 @@ exports.changePassword = (req, res) => {
     });
   });
 };
-
-function sendSignupSlackNotification(user, role) {
-  if (process.env.NODE_ENV === 'production') {
-    request
-      .post(config.slackUsersWebHookUrl)
-      .send({
-        text: `${user.email} just joined Get Cooked as a ${role}.`
-      })
-      .end();
-  }
-}

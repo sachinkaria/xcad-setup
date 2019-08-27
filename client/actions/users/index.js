@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { UPDATE_USER, GET_INSTAGRAM_FEED } from '../types';
+import { UPDATE_USER, GET_INSTAGRAM_FEED } from '../auth/types';
 import { errorHandler, successHandler, processingFileUpload, completedFileUpload } from '../public';
 
 export function updateUser(user, url, showSuccess) {

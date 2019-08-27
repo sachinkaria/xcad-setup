@@ -20,16 +20,6 @@ module.exports = function (app) {
   app.put('/api/users', requireAuth, User.update);
   app.put('/api/users/password', requireAuth, User.updatePassword);
 
-  // Upload photos
-  app.post('/api/users/photos', requireAuth, User.uploadPhoto);
-  app.post('/api/users/photos/profile', requireAuth, User.uploadProfilePhoto);
-  app.post('/api/users/photos/cover', requireAuth, User.uploadCoverPhoto);
-
-  // Delete photos
-  app.delete('/api/users/photo/profile', requireAuth, User.deleteProfilePhoto);
-  app.delete('/api/users/photo/cover', requireAuth, User.deleteCoverPhoto);
-  app.delete('/api/users/photos/:id', requireAuth, User.deletePhoto);
-
   // Password reset routes
   app.post('/api/forgot', AuthenticationController.forgotPassword);
   app.post('/api/reset/:token', AuthenticationController.changePassword);
@@ -37,6 +27,4 @@ module.exports = function (app) {
   // Get profile route
   app.get('/api/users/me', requireAuth, User.getCurrentUser);
 
-  // Connect instagram
-  app.get('/api/users/me/instagram/handleAuth', requireAuth, User.instagramAuth);
 };

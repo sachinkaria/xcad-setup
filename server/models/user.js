@@ -2,7 +2,6 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Booking = require('./booking');
 const bcrypt = require('bcrypt-nodejs');
 const crypto = require('crypto');
 const moment = require('moment');
@@ -25,19 +24,9 @@ const UserSchema = new Schema({
     },
     role: {
       type: String,
-      enum: ['member', 'chef', 'admin'],
-      default: 'member'
+      enum: ['user', 'admin'],
+      default: 'user'
     },
-    profilePhoto: {
-      type: String
-    },
-
-    photos: [{
-      src: {
-        type: String
-      }
-    }],
-    termsAccepted: Boolean,
     resetPasswordToken: {type: String},
     resetPasswordExpires: {type: Date}
   },

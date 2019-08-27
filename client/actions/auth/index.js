@@ -1,7 +1,7 @@
 import axios from 'axios';
 import _ from 'lodash';
 import { browserHistory } from 'react-router';
-import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, UPDATE_USER } from '../types';
+import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, UPDATE_USER } from './types';
 import { errorHandler, successHandler } from '../public';
 import { getCurrentUser } from '../users';
 import { createEvent } from '../events';

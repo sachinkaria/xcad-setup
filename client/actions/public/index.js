@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LIST_CHEFS, GET_CHEF, SHOW_ERROR, HIDE_ERROR, SHOW_SUCCESS, HIDE_SUCCESS, PROCESSING_FILE_UPLOAD, COMPLETED_FILE_UPLOAD } from '../types';
+import { LIST_CHEFS, GET_CHEF, SHOW_ERROR, HIDE_ERROR, SHOW_SUCCESS, HIDE_SUCCESS, PROCESSING_FILE_UPLOAD, COMPLETED_FILE_UPLOAD } from '../auth/types';
 
 export function errorHandler(dispatch, error) {
   if (error) {
