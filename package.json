@@ -19,7 +19,7 @@
   "author": "Sachin Karia",
   "license": "ISC",
   "dependencies": {
-    "async": "^2.6.0",
+    "async": "^2.6.4",
     "aws-sdk": "^2.130.0",
     "axios": "^0.15.3",
     "babel-eslint": "^7.2.3",
