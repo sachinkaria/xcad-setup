@@ -27,7 +27,7 @@
     "bcrypt-node": "^0.1.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.1",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "chokidar": "^1.7.0",
     "classnames": "^2.2.5",
     "compression-webpack-plugin": "^1.1.11",
